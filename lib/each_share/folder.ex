@@ -9,7 +9,7 @@ defmodule EachShare.Folder do
     field :name, :string
     field :type, :string
     belongs_to :folder, EachShare.Folder
-    has_many :sub_folders, EachShare.Folder, foreign_key: :folder_id, on_replace: :delete
+    has_many :sub_folders, EachShare.Folder, foreign_key: :folder_id, on_replace: :delete, on_delete: :delete_all
     has_many :files, EachShare.File
 
     timestamps()
@@ -44,8 +44,9 @@ defmodule EachShare.Folder do
     |> Repo.update()
   end
 
-  def delete_folder(%Folder{} = folder) do
-    Repo.delete(folder)
+  def delete_folder(folder_id) do
+    Repo.get(Folder, folder_id)
+    |> Repo.delete()
   end
 
   def change_folder(%Folder{} = folder) do

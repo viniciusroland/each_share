@@ -57,4 +57,9 @@ defmodule EachShareWeb.FolderController do
 
     json(conn, folder)
   end
+
+  def delete(conn, %{"id" => id}) do
+    Folder.delete_folder(id)
+    json(conn, %{"stats" => "ok"})
+  end
 end
