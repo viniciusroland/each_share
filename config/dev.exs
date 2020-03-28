@@ -6,6 +6,7 @@ config :each_share, EachShare.Repo,
   password: "postgres",
   database: "each_share_dev",
   hostname: "localhost",
+  # hostname: System.get_env("POSTGRES_HOSTNAME")
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
