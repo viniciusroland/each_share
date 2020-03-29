@@ -18,6 +18,7 @@
                         'Elixir.EachShareWeb.Gettext',
                         'Elixir.EachShareWeb.Router',
                         'Elixir.EachShareWeb.Router.Helpers',
+                        'Elixir.EachShareWeb.StatusController',
                         'Elixir.EachShareWeb.UserSocket']},
               {registered,[]},
               {vsn,"0.1.0"},

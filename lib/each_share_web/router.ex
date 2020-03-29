@@ -8,6 +8,7 @@ defmodule EachShareWeb.Router do
 
   scope "/api", EachShareWeb do
     pipe_through :api
+    get "/check-status", StatusController, :check_status
     post "/upload-file", FileController, :upload_file
     post "/associate-folder", FolderController, :associate_folder
     post "/associate-file", FolderController, :associate_file
