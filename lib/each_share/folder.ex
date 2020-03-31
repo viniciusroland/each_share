@@ -10,7 +10,7 @@ defmodule EachShare.Folder do
     field :type, :string
     belongs_to :folder, EachShare.Folder
     has_many :sub_folders, EachShare.Folder, foreign_key: :folder_id, on_replace: :delete, on_delete: :delete_all
-    has_many :files, EachShare.File
+    has_many :files, EachShare.File, on_delete: :delete_all
 
     timestamps()
   end
