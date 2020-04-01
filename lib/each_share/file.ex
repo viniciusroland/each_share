@@ -24,7 +24,7 @@ defmodule EachShare.File do
     filename = "#{timestamp_seconds}-#{upload.filename}"
     priv_path = Application.app_dir(:each_share, "priv/files")
 
-    File.cp(upload.path, "#{priv_path}/#{filename}")
+    File.cp(upload.path, "#{priv_path}/#{filename}") |> IO.inspect
 
     filename
   end

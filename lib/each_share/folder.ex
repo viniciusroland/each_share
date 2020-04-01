@@ -27,7 +27,7 @@ defmodule EachShare.Folder do
   end
 
   def list_folders(type) do
-    Repo.all(from f in Folder, where: f.type == ^type, preload: [:sub_folders, :files])
+    Repo.all(from f in Folder, where: f.type == ^type, order_by: [asc: :name], preload: [:sub_folders, :files])
   end
 
   def get_folder!(id), do: Repo.one(from f in Folder, where: f.id == ^id, preload: [:sub_folders, :files])

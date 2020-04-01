@@ -1,6 +1,6 @@
 defmodule EachShareWeb.StatusController do
   use EachShareWeb, :controller
   def check_status(conn, _params) do
-    json(conn, %{"server_status" => "up and running!"})
+    json(conn, %{"status" => "server up and running!"})
   end
 end
