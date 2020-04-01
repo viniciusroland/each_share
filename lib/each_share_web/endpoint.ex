@@ -39,6 +39,14 @@ defmodule EachShareWeb.Endpoint do
     key: "_each_share_key",
     signing_salt: "fqkIBAAU"
 
-  plug CORSPlug, origin: "*"
+  # plug CORSPlug, origin: "*"
+  plug Corsica,
+    origins: [
+      "http://localhost:3000",
+      "https://eachshare.digital"
+    ],
+    allow_headers: ["accept", "content-type", "authorization"],
+    allow_credentials: true
+
   plug EachShareWeb.Router
 end
