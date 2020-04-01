@@ -59,7 +59,11 @@ defmodule EachShareWeb.FolderController do
   end
 
   def delete(conn, %{"id" => id}) do
-    Folder.delete_folder(id)
-    json(conn, %{"stats" => "ok"})
+    case get_req_header(conn, "authorization") do
+      ["viniciusroland:123"] ->
+        Folder.delete_folder(id)
+        json(conn, %{"stats" => "ok"})
+      _ -> conn |> put_status(:unauthorized) |> json(%{"error" => "bad auth"})
+    end
   end
 end
