@@ -22,7 +22,9 @@ defmodule EachShare.File do
   def save_uploaded_file(upload) do
     timestamp_seconds =  DateTime.utc_now |> DateTime.to_unix
     filename = "#{timestamp_seconds}-#{upload.filename}"
-    File.cp(upload.path, "priv/files/#{filename}")
+    priv_path = Application.app_dir(:each_share, "priv/files")
+
+    File.cp(upload.path, "#{priv_path}/#{filename}")
 
     filename
   end
