@@ -18,7 +18,8 @@ defmodule EachShareWeb.Endpoint do
   if code_reloading? do
     plug Phoenix.CodeReloader
   end
-  plug CORSPlug, origin: "*"
+
+  plug CORSPlug, origin: ["https://eachshare.digital", "http://localhost:3000"]
 
   plug Plug.RequestId
   plug Plug.Telemetry, event_prefix: [:phoenix, :endpoint]
