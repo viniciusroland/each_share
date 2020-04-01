@@ -25,7 +25,7 @@ defmodule EachShare.File do
     File.cp(upload.path, "priv/files/#{filename}")
 
     filename
-  end 
+  end
 
   def list_files do
     Repo.all(EachShare.File)
@@ -52,7 +52,7 @@ defmodule EachShare.File do
   def change_file(%EachShare.File{} = file) do
     EachShare.File.changeset(file, %{})
   end
-  
+
   # formatar resultado
   def format(contents) when is_list(contents) do
     for content <- contents, into: [], do: format(content)
