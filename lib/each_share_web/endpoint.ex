@@ -19,7 +19,6 @@ defmodule EachShareWeb.Endpoint do
     plug Phoenix.CodeReloader
   end
 
-  plug CORSPlug, origin: ["https://eachshare.digital", "http://localhost:3000"]
 
   plug Plug.RequestId
   plug Plug.Telemetry, event_prefix: [:phoenix, :endpoint]
@@ -40,5 +39,6 @@ defmodule EachShareWeb.Endpoint do
     key: "_each_share_key",
     signing_salt: "fqkIBAAU"
 
+  plug CORSPlug, origin: "*"
   plug EachShareWeb.Router
 end
