@@ -13,6 +13,8 @@ defmodule EachShareWeb.FolderController do
     end
   end
 
+
+
   def index(conn, params) do
     folders =
       Map.get(params, "type")
