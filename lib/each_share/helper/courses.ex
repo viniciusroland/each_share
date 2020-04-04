@@ -29,7 +29,7 @@ defmodule EachShare.Helper.Courses do
   def create_courses_with_semesters() do
     create_courses_folders()
 
-    1..10
+    1..11
     |> Enum.each(fn folder_id ->
       for semester <- get_semesters_map(),
         do: EachShare.Folder.add_sub_folder(
