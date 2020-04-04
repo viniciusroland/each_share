@@ -10,14 +10,15 @@ defmodule EachShare.Helper.Courses do
       "LAZER E TURISMO",
       "MARKETING",
       "OBSTETRÍCIA",
-      "SISTEMAS DE INFORMAÇÃO"
+      "SISTEMAS DE INFORMAÇÃO",
+      "TÊXTIL E MODA"
     ]
     |> Enum.map(fn curso -> String.downcase curso end)
   end
 
   def create_courses_folders() do
     get_each_couses()
-    |> Enum.map(fn curso -> EachShare.Folder.create_folder %{"name" => curso} end)
+    |> Enum.map(fn curso -> EachShare.Folder.create_folder %{"name" => curso, "type" => "course"} end)
   end
 
   def get_semesters_map() do

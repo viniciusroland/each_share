@@ -18,7 +18,7 @@ defmodule EachShare.Folder do
   @doc false
   def changeset(folder, attrs) do
     folder
-    |> cast(attrs, [:name])
+    |> cast(attrs, [:name, :type])
     |> validate_required([:name])
   end
 
